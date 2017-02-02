@@ -7,6 +7,7 @@ var cors = require('cors');
 var securableEndpoints;
 securableEndpoints = ['/hello'];
 securableEndpoints = ['/users'];
+securableEndpoints = ['/products'];
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(mbaasExpress.fhmiddleware());
 
 app.use('/hello', require('./lib/hello.js')());
 app.use('/users', require('./lib/users.js')());
+app.use('/products', require('./lib/products.js')());
 
 // Important that this is last!
 app.use(mbaasExpress.errorHandler());
